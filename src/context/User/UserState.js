@@ -6,7 +6,7 @@ import axios from 'axios';
 
 export const UserState = (props) => {
   const initialState = {
-    user: [],
+    users: [],
     selectedUser: null,
   };
 
@@ -14,8 +14,8 @@ export const UserState = (props) => {
 
   const getUsers = async () => {
     try {
-      const res = await axios.get('https://reqres.in/api/users');
-      const data = res.data.data;
+      const response = await axios.get('https://reqres.in/api/users');
+      const data = response.data.data;
       dispatch({
         type: types.getUsers,
         payload: data,
@@ -27,8 +27,8 @@ export const UserState = (props) => {
 
   const getProfile = async (id) => {
     try {
-      const res = await axios.get(`https://reqres.in/api/users/${id}`);
-      const {data} = res;
+      const response = await axios.get(`https://reqres.in/api/users/${id}`);
+      const data = response.data.data;
       dispatch({
         type: types.getProfile,
         payload: data,

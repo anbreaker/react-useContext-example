@@ -1,17 +1,19 @@
 import {types} from '../types';
 
 export const UserReducer = (state, action) => {
-  switch (action.type) {
+  const {payload, type} = action;
+
+  switch (type) {
     case types.getUsers:
       return {
         ...state,
-        users: action.payload,
+        users: payload,
       };
 
     case types.getProfile:
       return {
         ...state,
-        selectedUser: action.payload,
+        selectedUser: payload,
       };
 
     default:
